@@ -1,0 +1,146 @@
+/* Styles for the comments section */
+#comments {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 20px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+}
+
+/* Styles for each comment */
+.comment {
+    flex: 0 0 calc(33% - 20px);
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Styles for the username */
+.comment h3 {
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #333;
+}
+
+/* Styles for the comment text */
+.comment p {
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #666;
+}
+
+/* Styles for the timestamp */
+.comment p:last-child {
+    margin-bottom: 0;
+    font-size: 14px;
+    color: #999;
+}
+
+/* Styles for the comment submission form */
+form {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Styles for the textarea */
+form textarea {
+    width: 100%;
+    height: 100px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    resize: vertical;
+}
+
+/* Styles for the submit button */
+form input[type="submit"] {
+    margin-top: 10px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #333;
+    color: #fff;
+    cursor: pointer;
+}
+
+/* Styles for the username input field */
+form input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border: 3px solid #ddd;
+    border-radius: 1px;
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 10px;
+    text-align: center; /* Center the text */
+}
+
+/* Styles for the submit button */
+form input[type="submit"] {
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    text-align: center; /* Center the text */
+}
+
+/* Change the background color when hovering over the submit button */
+form input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* Styles for the star rating */
+.star-rating {
+    direction: rtl; /* Reverse the order of the radio buttons */
+}
+
+/* Styles for the stars */
+.star-rating .star {
+    display: inline-block;
+    font-size: 30px; /* Increase the size of the stars */
+    color: #ccc; /* Default color of the stars */
+}
+
+/* Highlight the stars on hover */
+.star-rating .star:hover,
+.star-rating .star:hover ~ .star {
+    color: #ffd700; /* Gold color */
+}
+
+/* Keep the stars highlighted after a radio button is selected */
+.star-rating :checked ~ .star {
+    color: #ffd700; /* Gold color */
+}
+
+/* Style the selected star and the stars before it */
+.star-rating :checked,
+.star-rating :checked ~ .star {
+    color: #f00; /* Red color */
+}
+
+/* Keep the stars highlighted after a radio button is selected */
+.star-rating :checked ~ .star {
+    color: #ffd700; /* Gold color */
+}
+
+/* Half star selector */
+.comment .rating > span:before {
+    content: "\2605";
+    position: absolute;
+}
+
+/* Filled star selector */
+.comment .rating > span ~ span:before {
+    content: "\2606";
+}

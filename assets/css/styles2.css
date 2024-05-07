@@ -1,0 +1,132 @@
+.login-container {
+    width: 100%;
+    max-width: 400px;
+    padding: 15px;
+    border-radius: 5px;
+    background-color: rgb(90, 82, 82);
+    opacity: 75%;
+    box-shadow:  10px 10px 10px  10px rgb(2, 0, 0) ((255, 0, 0, 0.1)1);
+  }
+  
+  .login-form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .login-button {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    border-radius: 4px;
+  
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+    display: block;
+    margin: 0 auto;
+  }
+  
+  .login-button:hover {
+    background-color: #037dff;
+  }
+  
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background: fixed;
+    background: no-repeat;
+    background-size: cover;
+    background-image: url(img/sam-sulek-front-lat-spread) ;
+  }
+  
+  body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(18, 17, 17, 0.717); /* semi-transparent grey */
+    backdrop-filter: blur(5px); /* blur effect */
+    z-index: -1; /* place it behind other content */
+  }
+  
+  .logo {
+    display: block;
+    width: 100px; /* adjust as needed */
+    height: auto;
+    margin: 0 auto 20px; /* centers the logo and adds a bottom margin */
+  }
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1em;
+}
+
+/* Mobile devices */
+@media (max-width: 480px) {
+    .login-container {
+        width: 90%;
+    }
+
+    .logo {
+        width: 80px;
+    }
+
+    .login-form {
+        padding: 20px;
+    }
+}
+
+/* Tablet devices */
+@media (min-width: 481px) and (max-width: 768px) {
+    .login-container {
+        width: 70%;
+    }
+
+    .logo {
+        width: 90px;
+    }
+
+    .login-form {
+        padding: 30px;
+    }
+}
+
+/* Desktop devices */
+@media (min-width: 769px) {
+    .login-container {
+        width: 50%;
+    }
+
+    .logo {
+        width: 100px;
+    }
+
+    .login-form {
+        padding: 40px;
+    }
+}
+
