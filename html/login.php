@@ -12,7 +12,7 @@
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
 
     <!--=============== CSS ===============-->
-    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="stylesheet" href="../assets/css/styles1.css">
     <link rel="stylesheet" href="../assets/css/styles2.css">
 
     <title>OG Fitness</title>
@@ -69,12 +69,6 @@
             <p class="login-register-text">Don't have an account? <a href="register.php"> Register Here</a></p>
         </form>
     </div>
-
-
-
-
-
-    <!--==================== FOOTER ====================-->
 
 </body>
 

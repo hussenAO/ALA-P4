@@ -26,7 +26,7 @@ $comments = mysqli_fetch_all($result, MYSQLI_ASSOC);
         <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
 
         <!--=============== CSS ===============-->
-        <link rel="stylesheet" href="../assets/css/styles.css">
+        <link rel="stylesheet" href="../assets/css/styles1.css">
         <link rel="stylesheet" href="../assets/css/comments.css">
 
         <title>OG Fitness</title>

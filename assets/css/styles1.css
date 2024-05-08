@@ -210,6 +210,11 @@ img {
   }
 }
 
+.log1{
+  color: white;
+  
+}
+
 .nav__list {
   padding: 5rem 0 0 3rem;
   display: flex;

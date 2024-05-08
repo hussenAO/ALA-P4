@@ -5,7 +5,11 @@ Auteur          : Djojo, Tejo en Rahman
 project         : peridode 3
 Aanmaakdatum    : 01-02-2024
 -------------------------------------->
+<?php
+// Start de sessie
+session_start();
 
+?>
 <!DOCTYPE html>
 <!-- rest of your HTML code -->
 
@@ -22,7 +26,7 @@ Aanmaakdatum    : 01-02-2024
     <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
 
     <!--=============== CSS ===============-->
-    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/styles1.css">
 
     <title>OG Fitness</title>
 </head>
@@ -49,9 +53,21 @@ Aanmaakdatum    : 01-02-2024
                     <li class="nav__item">
                         <a href="#pricing" class="nav__link">Bodybuilders</a>
                     </li>
-                    <div class="nav__link">
-                        <a href="html/login.php" class="button nav__button">Login</a>
-                </div>  
+                    <li class="nav__item">
+                        <a href="#BMI" class="nav__link">Calculate BMI</a>
+                    </li>
+                  
+                    <?php if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true): ?>
+                    <li class="nav__item">
+                        <a class="log1" href="assets/php/logout.php">Uitloggen</a>
+                    </li>
+                    <?php else: ?>
+                    <li class="nav__item">
+                        <a class="log1" href="html/login.php">Inloggen</a>
+                    </li>
+                    <?php endif; ?>
+            
+               
             </ul> 
                  
 
@@ -270,9 +286,13 @@ Aanmaakdatum    : 01-02-2024
                             </li>
                         </ul>
 
-                        <a href="html/ronnie.php" class="button button__flex pricing__button">
-                            Go To <i class="ri-arrow-right-line"></i>
-                        </a>
+                        <?php if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true): ?>
+                            <a href="html/ronnie.php" class="button button__flex pricing__button">
+                              Go To <i class="ri-arrow-right-line"></i>
+                            </a>
+                        <?php else: ?>
+                          <p>U moet inloggen om de prijsplannen te bekijken.</p>
+                        <?php endif; ?>
                     </article>
 
                     <article class="pricing__card pricing__card-active">
@@ -301,11 +321,18 @@ Aanmaakdatum    : 01-02-2024
                                 <i class="ri-checkbox-circle-line"></i> Muscle Stretching
                             </li>
                         </ul>
+           
+                   
+                    <?php if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true): ?>
+    <a href="html/eddie.php" class="button button__flex pricing__button">
+        Go To <i class="ri-arrow-right-line"></i>
+    </a>
+<?php else: ?>
+    <p style="color: black;">U moet inloggen om de prijsplannen te bekijken.</p>
+<?php endif; ?>
+ </article>
 
-                        <a href="html/eddie.php" class="button button__flex pricing__button">
-                            Go To <i class="ri-arrow-right-line"></i>
-                        </a>
-                    </article>
+    
 
                     <article class="pricing__card">
                         <header class="pricing__header">
@@ -333,17 +360,20 @@ Aanmaakdatum    : 01-02-2024
                                 <i class="ri-checkbox-circle-line"></i> Muscle Stretching
                             </li>
                         </ul>
-
-                        <a href="html/arnold.php" class="button button__flex pricing__button">
-                            Go To <i class="ri-arrow-right-line"></i>
-                        </a>
+                        <?php if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true): ?>
+                            <a href="html/arnold.php" class="button button__flex pricing__button">
+                              Go To <i class="ri-arrow-right-line"></i>
+                            </a>
+                        <?php else: ?>
+                          <p>U moet inloggen om de prijsplannen te bekijken.</p>
+                        <?php endif; ?>
                     </article>
                 </div>
             </div>
         </section>
 
         <!--==================== CALCULATE ====================-->
-        <section class="calculate section">
+        <section class="calculate section" id="BMI">
             <div class="calculate__container container grid">
                 <div class="calculate__content">
                     <div class="section__titles">

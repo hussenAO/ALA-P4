@@ -26,7 +26,7 @@ $comments = mysqli_fetch_all($result, MYSQLI_ASSOC);
         <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
 
         <!--=============== CSS ===============-->
-        <link rel="stylesheet" href="../assets/css/styles.css">
+        <link rel="stylesheet" href="../assets/css/styles1.css">
         <link rel="stylesheet" href="../assets/css/comments.css">
         <title>OG Fitness</title>
     </head>
@@ -39,17 +39,34 @@ $comments = mysqli_fetch_all($result, MYSQLI_ASSOC);
                 </a>
 
                 <div class="nav__menu" id="nav-menu">
-                    <ul class="nav__list">
+                     <ul class="nav__list">
                         <li class="nav__item">
                             <a href="../index.php" class="nav__link active-link">Home</a>
                         </li>
-                        </div>
-                    </ul>
+                        <li class="nav__item">
+                          <a href="ronnie.php" class="nav__link">Ronnie</a>
+                        </li>
+                        <li class="nav__item">
+                           <a href="eddie.php" class="nav__link">Eddie</a>
+                         </li>
+                        <li class="nav__item">
+                          <a href="arnold.php" class="nav__link">Arnold</a>
+                       </li>
+                        
+                            <div class="nav__link">
+                                <a href="javascript:window.history.back()" class="button nav__button">Go Back</a>
+                            </div>
+                      </ul> 
+                    
+                
+     
+                    
 
                     <div class="nav__close" id="nav-close">
                         <i class="ri-close-line"></i>
                     </div>
                 </div>
+
 
                 <!-- Toggle button -->
                 <div class="nav__toggle" id="nav-toggle">

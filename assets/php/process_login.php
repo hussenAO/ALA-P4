@@ -19,9 +19,12 @@ if ($con->connect_error) {
             // Password is correct
             // Set last activity time stamp
             $_SESSION['last_activity'] = time();
+           
+             // Set loggedin status
+    $_SESSION['loggedin'] = true;
 
             // Redirect to index.php
-            header('Location: ../../html/ingelogd.php');
+            header('Location: ../../index.php');
             exit;
         } else {
             $_SESSION['error'] = "Incorrect password";
