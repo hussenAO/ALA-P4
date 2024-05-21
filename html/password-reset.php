@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,6 +17,7 @@
     <!--=============== CSS ===============-->
     <link rel="stylesheet" href="../assets/css/styles1.css">
     <link rel="stylesheet" href="../assets/css/styles2.css">
+    <link rel="stylesheet" href="../assets/css/styles3.css">
 
     <title>OG Fitness</title>
 </head>
@@ -52,26 +56,25 @@
         </nav>
     </header>
 
-    <!--==================== LOGIN ====================-->
-    
-    <div class="login-container">
-        <img src="../assets/img/logo-nav.png" alt="Logo" class="logo">
-        <form class="login-form" action="../assets/php/process_login.php" method="post">
-            <h2>Login</h2>
-            <div class="form-group">
-                <label for="username">Username</label>
-                <input type="text" id="username" name="username" required>
-            </div>
-            <div class="form-group">
-                <label for="password">Password</label>
-                <input type="password" id="password" name="password" required>
-            </div>
-            <button type="submit" class="login-button">Login</button>
-            <p>wachtwoord vergeten<a href="password-reset.php" class="login-forgot-password">Forgot Password?</a></p>
-            <p class="login-register-text">Don't have an account? <a href="register.php"> Register Here</a></p>
-        </form>
+<div class="card-ps">
+    <div class="card-header">
+        <h3>verander wachtwoord</h3>
     </div>
-
-</body>
-
-</html>
+    <div class="card-body">
+        <?php if(isset($_SESSION['status'])){
+    echo "<p class='status'>".$_SESSION['status']."</p>";
+    unset($_SESSION['status']);
+}
+?>
+    <fieldset>    
+    <form action="../assets/php/pd-reset-code.php" method="post">
+            <div class="input-group">
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email" required>
+                <div class="button-wrapper">
+                <button type="submit" class="btn-reset-ps" name="reset-password">verzenden</button>
+            </div>
+            </div>
+        </form>
+    </fieldset>
+</div>

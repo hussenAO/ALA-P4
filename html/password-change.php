@@ -1,3 +1,8 @@
+<?php
+session_start();
+
+
+?>
 <!DOCTYPE html>
     <html lang="en">
     <head>
@@ -13,6 +18,7 @@
         <!--=============== CSS ===============-->
         <link rel="stylesheet" href="../assets/css/styles1.css">
         <link rel="stylesheet" href="../assets/css/styles2.css">
+        <link rel="stylesheet" href="../assets/css/styles3.css">
 
         <title>OG Fitness</title>
     </head>
@@ -50,30 +56,36 @@
                 </nav>
             </header>
 
-    <!--==================== LOGIN ====================-->
-    <div class="login-container">
-        <img src="../assets/img/logo-nav.png" alt="Logo" class="logo">
-        <form class="login-form" action="../assets/php/register.php" method="post">
-            <h2>Register</h2>
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input type="text" id="email" name="email" required>
-            </div>
-            <div class="form-group">
-                <label for="username">Username</label>
-                <input type="text" id="username" name="username" required>
-            </div>
-            <div class="form-group">
-                <label for="password">Password</label>
-                <input type="password" id="password" name="password" required>
-            </div>
-            <button type="submit" class="login-button">Register</button>
-            <p class="login-register-text">have an account? <a href="login.php">Login Here</a></p>
-        </form>
+<div class="card-ps">
+    <div class="card-header">
+        <h3>wachtwoord veranderen</h3>
     </div>
-
-    
-    
-
-    </body>
-</html>
+    <div class="card-body">
+<?php
+if(isset($_SESSION['status'])){
+    echo "<p class='status'>".$_SESSION['status']."</p>";
+    unset($_SESSION['status']);
+}
+?>
+        <fieldset>
+            <form action="../assets/php/pd-reset-code.php" method="post">
+                <input type="hidden" name="password_token" value="<?php if(isset($_GET['token']))echo $_GET['token']; ?>">
+                <div class="form-group mb-3">
+                    <label for="email">Email</label>
+                    <input type="email" name="email" value="<?php if(isset($_GET['email']))echo $_GET['email']; ?>" id="email" required>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="password">New Password</label>
+                    <input type="password" name="new_password" id="new_password" required>
+                </div>
+                <div class="form-group mb-3">
+                    <label for="password">Confirm Password</label>
+                    <input type="password" name="confirm_password" id="confirm_password" required>
+                </div>
+                <div class="form-group mb-3">
+                <button type="submit" class="btn-reset-ps" name="change-password">verander wachtwoord</button>
+                </div>
+            </form>
+        </fieldset>
+    </div>
+</div>

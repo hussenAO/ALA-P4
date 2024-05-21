@@ -1165,3 +1165,7 @@ img {
     right: 3rem;
   }
 }
+.card-ps{
+  display: flex;
+  justify-content: center;
+}
