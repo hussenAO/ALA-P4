@@ -25,7 +25,11 @@ $stmt->execute();
 
 // Close the prepared statement
 $stmt->close();
-
+if (isset ($_POST['submit'])){
+    $file = $_FILES['file'];
+    print_r($file);
+    $fileName = $_FILES['file']['name'];
+}
 // Redirect back to the page
 header('Location: ../../html/eddie.php');
 ?>

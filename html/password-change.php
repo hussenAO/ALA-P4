@@ -58,7 +58,7 @@ session_start();
 
 <div class="card-ps">
     <div class="card-header">
-        <h3>wachtwoord veranderen</h3>
+      
     </div>
     <div class="card-body">
 <?php
@@ -67,7 +67,7 @@ if(isset($_SESSION['status'])){
     unset($_SESSION['status']);
 }
 ?>
-        <fieldset>
+        <fieldset> <legend>wachtwoord veranderen</legend>
             <form action="../assets/php/pd-reset-code.php" method="post">
                 <input type="hidden" name="password_token" value="<?php if(isset($_GET['token']))echo $_GET['token']; ?>">
                 <div class="form-group mb-3">

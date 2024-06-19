@@ -1,38 +1,4 @@
-/* Styles for the comments section */
-#comments {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    gap: 20px;
-    padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 5px;
-}
 
-/* Styles for each comment */
-.comment {
-    flex: 0 0 calc(33% - 20px);
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-/* Styles for the username */
-.comment h3 {
-    margin-bottom: 10px;
-    font-size: 18px;
-    color: #333;
-}
-
-/* Styles for the comment text */
-.comment p {
-    margin-bottom: 10px;
-    font-size: 16px;
-    color: #666;
-}
 
 /* Styles for the timestamp */
 .comment p:last-child {
@@ -45,7 +11,7 @@
 form {
     margin-top: 20px;
     padding: 20px;
-    background-color: #fff;
+    background-color: hsl(77, 9%, 70%);
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
@@ -55,7 +21,7 @@ form textarea {
     width: 100%;
     height: 100px;
     padding: 10px;
-    border: 1px solid #ddd;
+    border: 1px solid #000000;
     border-radius: 5px;
     resize: vertical;
 }
@@ -75,7 +41,7 @@ form input[type="submit"] {
 form input[type="text"] {
     width: 100%;
     padding: 10px;
-    border: 3px solid #ddd;
+    border: 3px solid   #000000;
     border-radius: 1px;
     font-size: 16px;
     color: #333;
@@ -85,19 +51,21 @@ form input[type="text"] {
 
 /* Styles for the submit button */
 form input[type="submit"] {
-    background-color: #007BFF;
+    background-color:#000000;
     color: #fff;
     border: none;
     border-radius: 5px;
     padding: 10px 20px;
     cursor: pointer;
     font-size: 16px;
+    
     text-align: center; /* Center the text */
+
 }
 
 /* Change the background color when hovering over the submit button */
 form input[type="submit"]:hover {
-    background-color: #0056b3;
+    background-color: #6b5353;
 }
 
 /* Styles for the star rating */
@@ -143,4 +111,48 @@ form input[type="submit"]:hover {
 /* Filled star selector */
 .comment .rating > span ~ span:before {
     content: "\2606";
+}
+
+/* Styles for the comments section */
+#comments {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    background-color: hsl(77, 9%, 70%);
+    border-radius: 5px;
+}
+
+/* Styles for each comment */
+.comment {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.comment:hover {
+    transform: scale(1.05);
+}
+
+/* Styles for the username */
+.comment h3 {
+    margin-bottom: 10px;
+    font-size: 18px;
+    color: #333;
+    text-transform: uppercase;
+}
+
+/* Styles for the comment text */
+.comment p {
+    margin-bottom: 10px;
+    font-size: 16px;
+    color: #666;
+    line-height: 1.5;
+}
+.pp{
+    color: black;
 }

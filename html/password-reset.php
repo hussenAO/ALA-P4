@@ -58,7 +58,7 @@ session_start();
 
 <div class="card-ps">
     <div class="card-header">
-        <h3>verander wachtwoord</h3>
+       
     </div>
     <div class="card-body">
         <?php if(isset($_SESSION['status'])){
@@ -66,7 +66,7 @@ session_start();
     unset($_SESSION['status']);
 }
 ?>
-    <fieldset>    
+    <fieldset>   <legend>verander wachtwoord</legend> 
     <form action="../assets/php/pd-reset-code.php" method="post">
             <div class="input-group">
                 <label for="email">Email</label>

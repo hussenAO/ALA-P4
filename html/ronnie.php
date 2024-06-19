@@ -260,8 +260,10 @@ $comments = mysqli_fetch_all($result, MYSQLI_ASSOC);
                 </div>
             </section>
                 <!-- Comment Form -->
-                <form action="../assets/php/submit_comment.php" method="post">
+               
+                <form action="../assets/php/submit_comment.php" method="post" enctype="multipart/form-data">
                     <input type="text" name="username" placeholder="Enter your username here...">
+                    <input type="file" name="image" accept="image/*">
                     <textarea name="comment" placeholder="Enter your comment here..."></textarea>
 
                     <!-- Star Rating -->
