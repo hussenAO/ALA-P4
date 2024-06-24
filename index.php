@@ -9,6 +9,7 @@ Aanmaakdatum    : 01-02-2024
 // Start de sessie
 session_start();
 
+
 ?>
 <!DOCTYPE html>
 <!-- rest of your HTML code -->
@@ -34,58 +35,77 @@ session_start();
 <body>
     <!--==================== HEADER ====================-->
     <header class="header" id="header">
-        <nav class="nav container">
-            <a href="index.php" class="nav__logo">
-                <img src="assets/img/logo-nav.png" alt="logo"> OG FITNESS
-            </a>
-
-            <div class="nav__menu" id="nav-menu">
-                <ul class="nav__list">
-                    <li class="nav__item">
-                        <a href="#home" class="nav__link active-link">Home</a>
-                    </li>
-                    <li class="nav__item">
-                        <a href="#program" class="nav__link">Program</a>
-                    </li>
-                    <li class="nav__item">
-                        <a href="#choose" class="nav__link">Choose Us</a>
-                    </li>
-                    <li class="nav__item">
-                        <a href="#pricing" class="nav__link">Bodybuilders</a>
-                    </li>
-                    <li class="nav__item">
-                        <a href="#BMI" class="nav__link">Calculate BMI</a>
-                    </li>
-                  
-                    <?php if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true): ?>
-                    <li class="nav__item">
-                        <a class="log1" href="assets/php/logout.php">Uitloggen</a>
-                    </li>
-                    <?php else: ?>
-                    <li class="nav__item">
-                        <a class="log1" href="html/login.php">Inloggen</a>
-                    </li>
-                    <?php endif; ?>
-            
-               
-            </ul> 
-                 
-
-                    
-
-
-
-                <div class="nav__close" id="nav-close">
+    <nav class="nav container">
+        <a href="index.php" class="nav__logo">
+            <img src="assets/img/logo-nav.png" alt="logo"> OG FITNESS
+        </a>
+ 
+        <div class="nav__menu" id="nav-menu">
+            <ul class="nav__list">
+                <li class="nav__item">
+                    <a href="#home" class="nav__link active-link">Home</a>
+                </li>
+                <li class="nav__item">
+                    <a href="#program" class="nav__link">Program</a>
+                </li>
+                <li class="nav__item">
+                    <a href="#choose" class="nav__link">Choose Us</a>
+                </li>
+                <li class="nav__item">
+                    <a href="#pricing" class="nav__link">Bodybuilders</a>
+                </li>
+                <li class="nav__item">
+                    <a href="#BMI" class="nav__link">Calculate BMI</a>
+                </li>
+                <?php if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true): ?>
+                <li class="nav__item profile">
+                    <img src="user.png" alt="User Profile" id="profile-icon">
+                    <div class="dropdown-menu" id="dropdown-menu">
+                        <div class="profile-info">
+                            <img src="user.png" alt="User" id="profile-picture">
+                        </div>
+                        <ul>
+                            <li><a href="#" id="edit-profile">Edit Profile</a></li>
+                            <li><a href="#">Settings & Privacy</a></li>
+                            <li><a href="#">Help & Support</a></li>
+                            <li><a href="assets/php/logout.php">Logout</a></li>
+                        </ul>
+                        <div class="edit-profile-section" id="edit-profile-section">
+                            <input type="file" id="upload-input" accept="image/*">
+                        </div>
+                    </div>
+                </li>
+                <?php else: ?>
+                <li class="nav__item">
+                    <a class="log1" href="html/login.php">Inloggen</a>
+                </li>
+                <?php endif; ?>
+            </ul>
+ 
+       
+         <div class="nav__close" id="nav-close">
                     <i class="ri-close-line"></i>
                 </div>
             </div>
-
+                 
+  
             <!-- Toggle button -->
             <div class="nav__toggle" id="nav-toggle">
                 <i class="ri-menu-line"></i>
             </div>
-        </nav>
-    </header>
+            
+   
+ </nav>
+        <!-- Cookie Acceptance Popup -->
+<div id="cookieConsentPopup" class="cookie-popup">
+    <div class="cookie-content">
+        <p>This website uses cookies to ensure you get the best experience on our website.</p>
+        <button id="acceptCookiesBtn">Accept Cookies</button>
+    </div>
+</div>
+
+  
+</header>              
 
     <!--==================== MAIN ====================-->
     <main class="main">
@@ -528,6 +548,126 @@ session_start();
 
     <!--=============== MAIN JS ===============-->
     <script src="assets/js/main.js"></script>
+    <script src="assets/js/profile.js" ></script>
+    <button id="acceptCookies">Accept Cookies</button>
+ 
+ <script>  
+ document.getElementById("acceptCookies").onclick = function() {
+     setCookie("cookiesAccepted", "true", 7);
+     this.disabled = true;
+     this.innerText = "Cookies Accepted";
+ }
+  
+ function setCookie(name, value, days) {
+     var expires = "";
+     if (days) {
+         var date = new Date();
+         date.setTime(date.getTime() + (days*24*60*60*1000));
+         expires = "; expires=" + date.toUTCString();
+     }
+     document.cookie = name + "=" + (value || "")  + expires + "; path=ani";
+ }
+ // When the page loads, add the current page to the pagesVisited cookie
+ window.onload = function() {
+     var currentPage = window.location.href;
+     var pagesVisited = getCookie("pagesVisited");
+     if (pagesVisited) {
+         pagesVisited = pagesVisited.split(",");
+     } else {
+         pagesVisited = [];
+     }
+     pagesVisited.push(currentPage);
+     setCookie("pagesVisited", pagesVisited.join(","), 7);
+ }
+  
+ // Existing setCookie function
+ function setCookie(name, value, days) {
+     var expires = "";
+     if (days) {
+         var date = new Date();
+         date.setTime(date.getTime() + (days*24*60*60*1000));
+         expires = "; expires=" + date.toUTCString();
+     }
+     document.cookie = name + "=" + (value || "")  + expires + "; path=ani";
+ }
+  
+ // Function to get a cookie
+ function getCookie(name) {
+     var nameEQ = name + "=";
+     var ca = document.cookie.split(';');
+     for(var i=0;i < ca.length;i++) {
+         var c = ca[i];
+         while (c.charAt(0)==' ') c = c.substring(1,c.length);
+         if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+     }
+     return null;
+ }
+ // Function to check time spent
+ function checkTimeSpent() {
+     var timeSpent = getCookie("timeSpent");
+     if (!timeSpent) {
+         timeSpent = 0;
+     }
+     timeSpent = parseInt(timeSpent);
+     timeSpent += 1;
+     setCookie("timeSpent", timeSpent, 1);
+     console.log("Time spent on the page" + timeSpent + " seconds");
+ }
+ // Call the checkTimeSpent function every second
+ setInterval(checkTimeSpent, 1000);
+  
+ // Function to check if the user has accepted cookies
+ function checkCookiesAccepted() {
+     var cookiesAccepted = getCookie("cookiesAccepted");
+     if (cookiesAccepted) {
+         document.getElementById("acceptCookies").disabled = true;
+         document.getElementById("acceptCookies").innerText = "Cookies Accepted";
+     }
+ }
+ checkCookiesAccepted();
+  
+ // Function to check if the user has visited the page before
+ function checkVisitedBefore() {
+     var pagesVisited = getCookie("pagesVisited");
+     if (pagesVisited) {
+         pagesVisited = pagesVisited.split(",");
+         if (pagesVisited.includes(window.location.href)) {
+             console.log("You have visited this page before");
+         } else {
+             console.log("You have not visited this page before");
+         }
+     }
+ }
+ checkVisitedBefore();
+  
+ document.addEventListener('DOMContentLoaded', function() {
+     var cookiesAccepted = getCookie("cookiesAccepted");
+     var cookiePopup = document.getElementById("cookieConsentPopup");
+  
+     // Show the popup if cookies haven't been accepted yet
+     if (!cookiesAccepted) {
+         cookiePopup.style.display = "block";
+     }
+  
+     // When the user clicks on "Accept Cookies" button, accept cookies and hide the popup
+     document.getElementById("acceptCookiesBtn").onclick = function() {
+         setCookie("cookiesAccepted", "true", 365); // Set the cookie to expire in 365 days
+         cookiePopup.style.display = "none";
+     };
+ });
+ // Function to delete a cookie
+ function deleteCookie(name) {
+     document.cookie = name + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+ }
+  
+ // Call the deleteCookie function to delete the "cookiesAccepted" cookie
+ deleteCookie("cookiesAccepted");
+  
+  
+  
+  
+ </script>
+  
+ 
 </body>
-
 </html>

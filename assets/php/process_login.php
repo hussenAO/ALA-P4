@@ -5,7 +5,7 @@ $username = $_POST['username'];
 $password = $_POST['password'];
 
 // connect to the database
-$con = new mysqli("localhost", "root", "", "login_sample_db");
+$con = new mysqli("sql308.infinityfree.com", "if0_36759792", "bo6kFZikZN", "if0_36759792_sample_db");
 if ($con->connect_error) {
     die("Connection failed: " . $con->connect_error);
 } else {

@@ -1,11 +1,11 @@
 <?php
-$servername = "localhost";
-$username = "username";
-$password = "password";
-$dbname = "login_sample_db";
+$servername = "sql308.infinityfree.com";
+$username = "if0_36759792";
+$password = "bo6kFZikZN";
+$dbname = "if0_36759792_sample_db";
 
 // Create connection
-$conn = new mysqli("localhost", "root", "", "login_sample_db");
+$conn = new mysqli("sql308.infinityfree.com", "if0_36759792", "bo6kFZikZN", "if0_36759792_sample_db");
 
 // Check connection
 if ($conn->connect_error) {

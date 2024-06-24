@@ -1,7 +1,6 @@
 <?php 
 session_start();
-include 'db.php';
-
+$conn = new mysqli("sql308.infinityfree.com", "if0_36759792", "bo6kFZikZN", "if0_36759792_sample_db");
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
@@ -27,7 +26,7 @@ function send_password_reset($get_name, $get_email, $token) {
     <h2>wachtwoord veranderen</h2>
     <p>je krijgt deze email omdat wij een wachtwoord reset verzoek kregen van jouw account.</p>
     <br>
-    <a href='http://localhost/school/projecten/OGF/OGF%20eindresults/ALA-P4/html/password-change.php?token=$token&email=$get_email'>Reset Password</a>";
+    <a href='http://og-fitness.infinityfreeapp.com/html/password-change.php?token=$token&email=$get_email'>Reset Password</a>";
 
     $mail->Body = $email_template;
     $mail->send();
